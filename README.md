@@ -10,7 +10,7 @@ Role Variables
 Default variables: (see default/main.yml)
   
   `memory_limit: 512M`
-  `destination_path: `/usr/local/bin/drush`
+  `destination_path: /usr/local/bin/drush`
 
 Example Playbook
 ----------------
