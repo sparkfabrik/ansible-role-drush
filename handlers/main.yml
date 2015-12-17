@@ -1,0 +1,4 @@
+---
+# handlers file for sparkfabrik.drush
+- name: drush cache clear
+  command: drush cc drush

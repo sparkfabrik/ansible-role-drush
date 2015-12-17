@@ -1,0 +1,4 @@
+---
+# defaults file for sparkfabrik.drush
+drush_memory_limit: 512M
+drush_destination_path: '/usr/local/bin/drush'

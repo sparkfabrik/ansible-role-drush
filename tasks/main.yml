@@ -1,0 +1,19 @@
+---
+# tasks file for sparkfabrik.drush
+- name: Install Drush globally
+  get_url: url=http://files.drush.org/drush.phar dest={{ drush_destination_path }}
+
+- name: Set drush execution
+  file: path=/usr/local/bin/drush mode="u+x,g+x"
+
+- name: Init drush
+  command: drush init
+
+- name: Drush | Create alias configuration folder
+  file: path=/etc/drush state=directory
+
+- name: Drush | Load PHP configuration
+  template: src=etc--drush--drush.ini.j2 dest=/etc/drush/drush.ini mode=444
+  notify: drush cache clear
+
+
