@@ -6,8 +6,13 @@
 - name: Set drush execution
   file: path=/usr/local/bin/drush mode="u+x,g+x"
 
+- name: Check init files
+  stat: path=~/.drush/drushrc.php
+  register: drushrc
+
 - name: Init drush
   command: drush init
+  when: drushrc.stat.exists == false
 
 - name: Drush | Create alias configuration folder
   file: path=/etc/drush state=directory
@@ -15,5 +20,4 @@
 - name: Drush | Load PHP configuration
   template: src=etc--drush--drush.ini.j2 dest=/etc/drush/drush.ini mode=444
   notify: drush cache clear
-
 
