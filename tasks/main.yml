@@ -11,7 +11,9 @@
   register: drushrc
 
 - name: Init drush
-  command: drush init
+  shell: drush init
+  args:
+    executables: /bin/bash
   when: drushrc.stat.exists == false
 
 - name: Drush | Create alias configuration folder
