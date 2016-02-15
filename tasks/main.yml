@@ -13,7 +13,7 @@
 - name: Init drush
   shell: drush init
   args:
-    executables: /bin/bash
+    executable: /bin/bash
   when: drushrc.stat.exists == false
 
 - name: Drush | Create alias configuration folder
